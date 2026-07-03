@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or framework in your research, please cite it as follows."
+title: "FD-Driven-Framework"
+version: "1.0.0"
+date-released: 2026-07-03
+url: "https://github.com/mansureh-mehdikhanluo/FD-Driven-Framework"
+authors:
+  - family-names: "Mehdikhanluo"
+    given-names: "Mansureh"
+  - family-names: "Shirazi"
+    given-names: "Mahmoud"
+  - family-names: "Narimani"
+    given-names: "Zahra"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Mehdikhanluo"
+      given-names: "Mansureh"
+    - family-names: "Shirazi"
+      given-names: "Mahmoud"
+    - family-names: "Narimani"
+      given-names: "Zahra"
+  title: "A Dependency-Driven Framework for Frequent Itemset Mining in Relational Databases"
+  journal: "Journal of Intelligent Information Systems"
+  year: 2026

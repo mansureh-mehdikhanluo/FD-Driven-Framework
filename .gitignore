@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Data and Outputs (to keep repository lightweight)
+results/*.json
+output/
+sub-datasets/
+*.csv
+!data/adult1.csv
+
+# IDEs
+.vscode/
+.idea/
