@@ -170,6 +170,9 @@ def preprocessing_csv(path_in: str, path_out: str, max_rows: Optional[int] = Non
     Start1=time.time()
     transactions = []
     n_trans = 0
+    out_dir = os.path.dirname(path_out)
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
     with open(path_in, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for idx, row in enumerate(reader):
@@ -204,13 +207,13 @@ def read_transactions_csv(path):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="A Dependency-Driven Framework for FIM (RQFP)")
+    parser = argparse.ArgumentParser(description="A Dependency-Driven Framework for FIM (FP-Growth)")
     parser.add_argument("--dataset", type=str, default="./data/adult1.csv", help="Path to input dataset (CSV)")
     parser.add_argument("--support", type=float, default=0.3, help="Minimum support threshold (0.0 to 1.0)")
     parser.add_argument("--out_dir", type=str, default="./sub-datasets", help="Directory for intermediate tables")
     parser.add_argument("--result", type=str, default="results/frequent_patterns_FPG.json", help="Path to save output patterns (JSON)")
     parser.add_argument("--output", type=str, default="output/transactions.csv", help="Path to save output patterns (JSON)")
-    parser.add_argument("--max_rows", type=str, default=None, help="Maximum size og data")
+    parser.add_argument("--max_rows", type=int, default=None, help="Maximum size of rows")
     args = parser.parse_args()
 
     tracemalloc.start()
