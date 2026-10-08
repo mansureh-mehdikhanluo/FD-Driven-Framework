@@ -294,6 +294,7 @@ if __name__ == "__main__":
     parser.add_argument("--band", type=int, default=500, help="Partition size boundary (band)")
     parser.add_argument("--out_dir", type=str, default="./sub-datasets", help="Directory for intermediate tables")
     parser.add_argument("--output", type=str, default="results/frequent_patterns_FW_RQFP.json", help="Path to save output patterns (JSON)")
+    parser.add_argument("--max_rows", type=int, default=None, help="Maximum number of rows to load from the dataset")
     args = parser.parse_args()
 
     tracemalloc.start()
@@ -307,7 +308,8 @@ if __name__ == "__main__":
         csv_path=args.dataset, 
         out_dir=args.out_dir, 
         band=args.band, 
-        min_supp=args.support
+        min_supp=args.support,
+        max_rows=args.max_rows,
     )
     t1 = time.time() - global_start
     _, peak_pre = tracemalloc.get_traced_memory()
