@@ -15,8 +15,9 @@ def save_mining_table_csv(
 ):
     try:
         # Ensure output directory exists
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        
+        out_dir = os.path.dirname(path)
+        if out_dir:
+            os.makedirs(out_dir, exist_ok=True)        
         with open(path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             # Header row to describe columns
@@ -216,7 +217,7 @@ if __name__ == "__main__":
     parser.add_argument("--support", type=float, default=0.3, help="Minimum support threshold (0.0 to 1.0)")
     parser.add_argument("--output", type=str, default="output/Mining_Table.csv", help="Path to save output patterns (JSON)")
     parser.add_argument("--result", type=str, default="results/frequent_patterns_RQFP.json", help="Path to save output patterns (JSON)")
-    parser.add_argument("--max_rows", type=str, default=None, help="Maximum size og data")
+    parser.add_argument("--max_rows", type=int, default=None, help="Maximum size of rows")
     args = parser.parse_args()
 
     # --- Initialize Tracemalloc for memory profiling ---
