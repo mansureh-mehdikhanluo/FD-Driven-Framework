@@ -270,7 +270,7 @@ if __name__ == "__main__":
     print(f"Database Rows (R): {R} | Min Support Count (minsup): {min_count}\n")
 
     # Step 2: Candidate Generation (Local Mining)
-    print("--- 2. Mining subdatasets using RQFP-Mine ---")
+    print("--- 2. Mining subdatasets using FP-Growth ---")
     tracemalloc.reset_peak()
     start_step2 = time.time()
     candida_FP = build_candidates_from_subdatasets(args.out_dir,min_count,R)
